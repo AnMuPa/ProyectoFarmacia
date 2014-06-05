@@ -8,7 +8,7 @@ package com.teide.dam.ejecuta;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Scanner;
-import com.teide.dam.aortiz.ioutil;
+import com.teide.dam.aortiz.ioutil.OperationsIO;
 
 /**
  *
@@ -18,11 +18,22 @@ public class ejecuta {
     
     
     public static void main(String[] args) {
-        ioutil util = new ioutil("datos");
-       // HashMap<String.Medicamento> hs = (HashMap) util.read();
-        
-        
-        
+        OperationsIO util = new OperationsIO("datos");
+        /*
+        HashMap<String.Medicamento> hs;
+        try {
+         hs = (Arraylist) util,read();
+         }
+        catch (ClassCastExe) {
+         
+         }
+         catch(IOException e) {
+         
+         }
+         catch (Exception e) {
+         
+         }
+     */   
     }
     
 }

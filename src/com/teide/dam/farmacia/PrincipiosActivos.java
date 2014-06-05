@@ -2,12 +2,13 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.teide.dam.medicinas;
+package com.teide.dam.farmacia;
 
 /**
  *
  * @author DAM1
  */
-public class Unidades {
-    
+public class PrincipiosActivos {
+    String nombre;
+    double miligramos;
 }
