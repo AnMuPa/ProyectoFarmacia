@@ -4,13 +4,17 @@
  */
 package com.teide.dam.farmacia;
 
-
+import java.util.ArrayList;
+import java.io.Serializable;
 
 
 /**
  *
  * @author DAM1
  */
-public class Farmacia {
+public class Farmacia implements Serializable{
+    
+    ArrayList <Medicamento> listado=new ArrayList<>();
+    
     
 }
