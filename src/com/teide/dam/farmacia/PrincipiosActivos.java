@@ -15,6 +15,6 @@ public class PrincipiosActivos {
      @Override
     public boolean equals(Object o){
         PrincipiosActivos pa = (PrincipiosActivos) o;
-        return pa.contains(nombre);
+        return pa.nombre.contains(nombre);
     }
 }

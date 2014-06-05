@@ -52,7 +52,7 @@ public class Medicamento {
     @Override
     public boolean equals(Object obj) {
         Medicamento m=(Medicamento) obj;
-        return m.contains(nombre);
+        return m.nombre.contains(nombre);
     }
 
     @Override
