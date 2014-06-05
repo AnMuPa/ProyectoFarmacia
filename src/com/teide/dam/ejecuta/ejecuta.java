@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Scanner;
 import com.teide.dam.aortiz.ioutil.OperationsIO;
+import java.util.ArrayList;
 
 /**
  *
@@ -20,20 +21,22 @@ public class ejecuta {
     public static void main(String[] args) {
         OperationsIO util = new OperationsIO("datos");
         /*
-        HashMap<String.Medicamento> hs;
+             ArrayList<Medicamento> listado;
         try {
-         hs = (Arraylist) util,read();
-         }
-        catch (ClassCastExe) {
-         
-         }
-         catch(IOException e) {
-         
-         }
-         catch (Exception e) {
-         
-         }
-     */   
+            listado = (ArrayList<Medicamento>) util.read();
+        }
+        catch (Exception e) {
+            listado = new ArrayList<>();
+        }
+         Aqui va el do while con el menu
+        }
+        try {
+            util.write(listado);
+        } catch (IOException ex) {
+            System.out.println("Error de escritura");
+        }
+    }
+} */
     }
     
 }
