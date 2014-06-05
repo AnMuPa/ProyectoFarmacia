@@ -16,5 +16,9 @@ public class Medicamento {
     double precioVenta;
     boolean tipo;
     
-    
+    @Override
+    public boolean equals(Object o){
+        Medicamento m = (Medicamento) o;
+        return m.contains(nombre);
+    }
 }

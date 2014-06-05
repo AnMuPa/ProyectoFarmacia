@@ -11,4 +11,10 @@ package com.teide.dam.farmacia;
 public class PrincipiosActivos {
     String nombre;
     double miligramos;
+    
+     @Override
+    public boolean equals(Object o){
+        PrincipiosActivos pa = (PrincipiosActivos) o;
+        return pa.contains(nombre);
+    }
 }
