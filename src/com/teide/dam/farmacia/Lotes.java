@@ -8,6 +8,9 @@ package com.teide.dam.farmacia;
  *
  * @author DAM1
  */
-public class Unidades {
+public class Lotes {
+    
+    
+    
     
 }
