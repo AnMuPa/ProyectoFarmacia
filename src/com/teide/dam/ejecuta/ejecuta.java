@@ -23,10 +23,8 @@ public class ejecuta {
         ArrayList<Medicamento> listado;
         try {
             listado = (ArrayList<Medicamento>) util.read();
-        } catch (IOException e) {
+        } catch (Exception e) {
             listado = new ArrayList<>();
-        } catch (ClassNotFoundException e) {
-
         }
         int opcion = 0;
         do {
