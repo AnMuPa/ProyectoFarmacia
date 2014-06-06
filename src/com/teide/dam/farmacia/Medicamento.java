@@ -4,7 +4,7 @@
  */
 package com.teide.dam.farmacia;
 
-import java.util.GregorianCalendar;
+import java.util.*;
 
 /**
  *
@@ -14,6 +14,8 @@ public class Medicamento {
     private String nombre,fechaFab,fechaCad,pinciActivo;
     private int receta;
     private double miligr,pvp;
+    private HashMap <String, Double>principios=new HashMap<>();
+    ArrayList<Lotes>listaLotes=new ArrayList<>();
     GregorianCalendar gc=new GregorianCalendar();
     
     public Medicamento(String nombre,Double pvp,String princiActivo,int receta,double miligr){
@@ -47,6 +49,15 @@ public class Medicamento {
         return pvp;
     }
 
+    public void setPvp(double pvp) {
+        this.pvp = pvp;
+    }
+
+    public boolean altaLote(Lotes l){
+        
+        
+        
+    }
    
     
     @Override
