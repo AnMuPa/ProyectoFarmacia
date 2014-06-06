@@ -12,10 +12,11 @@ import java.util.*;
  */
 public class Medicamento {
     private String nombre,pinciActivo;
-    private int receta;
+    private int receta, unidadesTotales;
     private double miligr,pvp;
     private HashMap <String, Double>principios=new HashMap<>();
     ArrayList<Lotes>listaLotes=new ArrayList<>();
+    
     
     
     public Medicamento(String nombre,Double pvp,String princiActivo,int receta,double miligr){
@@ -49,7 +50,8 @@ public class Medicamento {
     public boolean altaLote(Lotes l){
     if (listaLotes.contains(l.getLote())) return false;
     listaLotes.add(l);
-    return false;
+    unidadesTotales += l.getUnidades();
+    return true;
         
         
     }
@@ -58,6 +60,8 @@ public class Medicamento {
         if( listaLotes.remove(l.getLote())) return true;
         return false;
     }
+    
+   
     
     @Override
     public boolean equals(Object obj) {
