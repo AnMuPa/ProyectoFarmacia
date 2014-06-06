@@ -4,6 +4,7 @@
  */
 package com.teide.dam.farmacia;
 
+import java.util.Collections;
 import java.util.GregorianCalendar;
 
 /**
@@ -35,6 +36,14 @@ public class Lotes {
         this.unidades = unidades;
     }
     
+    public String extension(){
+        int i = 0;
+        i++;
+        String extension = "";
+        extension = String.valueOf(i);
+        
+        return "lote"+extension;
+    }
     
     
     public String getFechaFab() {

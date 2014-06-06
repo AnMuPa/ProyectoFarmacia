@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Scanner;
 import com.teide.dam.aortiz.ioutil.OperationsIO;
+import com.teide.dam.farmacia.Lotes;
 import com.teide.dam.farmacia.Medicamento;
 import java.util.ArrayList;
 
@@ -53,7 +54,12 @@ public class ejecuta {
                     System.out.println("0=NO");
                     System.out.println("1=SI");
                     int recetaInt = s.nextInt();
+                    System.out.println("¿Cuantas unidades?");
+                    int unidades = s.nextInt();
+                    String lote = "";
                     Medicamento m = new Medicamento(nombre, pvp, princiActivo, recetaInt, miligramos);
+                    Lotes l = new Lotes(lote,fechaCad, fechaFab, unidades);
+                    lote = l.extension();
                 }
                 break;
                 case 2: {
@@ -64,7 +70,7 @@ public class ejecuta {
                             case "1":
                                 System.out.println("¿Cual es el nombre del medicamento que buscas?");
                                 String nombreMed = s.nextLine();
-                                
+                               // if ()
                                 break;
                             case "2":
                                 String nombrePrincip = s.nextLine();
