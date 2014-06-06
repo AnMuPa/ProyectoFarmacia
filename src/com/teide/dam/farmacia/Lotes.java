@@ -36,16 +36,6 @@ public class Lotes {
         this.unidades = unidades;
     }
     
-    public String extension(){
-        int i = 0;
-        i++;
-        String extension = "";
-        extension = String.valueOf(i);
-        
-        return "lote"+extension;
-    }
-    
-    
     public String getFechaFab() {
     return fechaFab;
     }

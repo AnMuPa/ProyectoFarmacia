@@ -61,6 +61,13 @@ public class Medicamento {
         return false;
     }
     
+    public String extension(){
+        int i = 0;
+        i++;
+        String extension = "";
+        extension = String.valueOf(i);
+        return "lote"+extension;
+    }
    
     
     @Override

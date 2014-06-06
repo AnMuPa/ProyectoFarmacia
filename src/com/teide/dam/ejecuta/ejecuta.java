@@ -56,10 +56,10 @@ public class ejecuta {
                     int recetaInt = s.nextInt();
                     System.out.println("¿Cuantas unidades?");
                     int unidades = s.nextInt();
-                    String lote = "";
                     Medicamento m = new Medicamento(nombre, pvp, princiActivo, recetaInt, miligramos);
+                    String lote=m.extension();
                     Lotes l = new Lotes(lote,fechaCad, fechaFab, unidades);
-                    lote = l.extension();
+                    
                 }
                 break;
                 case 2: {
