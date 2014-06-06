@@ -74,6 +74,7 @@ public class ejecuta {
                                 break;
                             case "2":
                                 String nombrePrincip = s.nextLine();
+                                
                                 break;
                             case "3":
                                 System.out.println("Hasta pronto.");

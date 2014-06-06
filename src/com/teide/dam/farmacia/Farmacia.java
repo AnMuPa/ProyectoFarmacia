@@ -15,7 +15,7 @@ import java.util.*;
 public class Farmacia implements Serializable {
 
     ArrayList<Medicamento> listado = new ArrayList<>();
-
+    ArrayList<String> encontradosN;
     public void venta(int unidades) {
     }
 
@@ -51,11 +51,11 @@ public class Farmacia implements Serializable {
     }
 
     public boolean buscarMedicamento(String medicamento) {
-        ArrayList<String> encontrados = new ArrayList<>();
+        encontradosN = new ArrayList<>();
         int i = 0;
         while (i<listado.size()) {
             if (listado.contains(medicamento)) {
-                encontrados.add(medicamento);
+                encontradosN.add(medicamento);
                 return true;
             }
             i++;

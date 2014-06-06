@@ -16,7 +16,7 @@ public class Medicamento {
     private double miligr,pvp;
     private HashMap <String, Double>principios=new HashMap<>();
     ArrayList<Lotes>listaLotes=new ArrayList<>();
-    
+    ArrayList<String> encontradosPA;
     
     
     public Medicamento(String nombre,Double pvp,String princiActivo,int receta,double miligr){
@@ -69,6 +69,20 @@ public class Medicamento {
         return "lote"+extension;
     }
    
+    public boolean buscarPrincipioActivo(String PActivo) {
+        encontradosPA = new ArrayList<>();
+        int i = 0;
+        while (i<principios.size()) {
+            if (principios.containsKey(PActivo)) {
+                encontradosPA.add(PActivo);
+                return true;
+            }
+            i++;
+        }
+        return false;
+
+
+    }
     
     @Override
     public boolean equals(Object obj) {
