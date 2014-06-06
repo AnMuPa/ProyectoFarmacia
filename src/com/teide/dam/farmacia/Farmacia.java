@@ -17,5 +17,5 @@ public class Farmacia implements Serializable{
     
     ArrayList <Medicamento> listado=new ArrayList<>();
 
-     
+
 }
