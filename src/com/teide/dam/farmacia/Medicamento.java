@@ -11,14 +11,16 @@ import java.util.*;
  * @author DAM1
  */
 public class Medicamento {
-    private String nombre, pinciActivo;
+    private String nombre,fechaFab,fechaCad,pinciActivo;
     private int receta;
     private double miligr,pvp;
     private HashMap <String, Double>principios=new HashMap<>();
     ArrayList<Lotes>listaLotes=new ArrayList<>();
-   
+    GregorianCalendar gc=new GregorianCalendar();
     
     public Medicamento(String nombre,Double pvp,String princiActivo,int receta,double miligr){
+        this.fechaCad=gc.get(GregorianCalendar.DAY_OF_MONTH)+"/"+(gc.get(GregorianCalendar.MONTH)+1)+"/"+(gc.get(GregorianCalendar.YEAR)+1);
+        this.fechaFab=gc.get(GregorianCalendar.DAY_OF_MONTH)+"/"+(gc.get(GregorianCalendar.MONTH)+1)+"/"+(gc.get(GregorianCalendar.YEAR));
         this.miligr=miligr;
         this.nombre=nombre;
         this.pinciActivo=princiActivo;
@@ -28,7 +30,12 @@ public class Medicamento {
     public String getNombre() {
         return nombre;
     }
-    
+    public String getFechaFab() {
+        return fechaFab;
+    }
+    public String getFechaCad() {
+        return fechaCad;
+    }  
     public String getPinciActivo() {
         return pinciActivo;
     }
@@ -47,21 +54,20 @@ public class Medicamento {
     }
 
     public boolean altaLote(Lotes l){
-        if (listaLotes.contains(l.getLote())) return false;
-        listaLotes.add(l); 
-        return true;
-  
+        
+        
+        
     }
    
     
     @Override
     public boolean equals(Object obj) {
-        Medicamento m =(Medicamento) obj;
+        Medicamento m=(Medicamento) obj;
         return m.nombre.contains(nombre);
     }
 
-        public String toString(Object obj) {
-        Lotes l = (Lotes) obj;
-        return "Nombre: "+nombre+" Pr.activo: "+pinciActivo+" "+miligr+"mg"+" Receta: "+receta+" Fab: "+l.getFechaFab()+" Cad : "+l.getFechaCad()+" --> "+pvp+"€";
+    @Override
+    public String toString() {
+        return "Nombre: "+nombre+" Pr.activo: "+pinciActivo+" "+miligr+"mg"+" Receta: "+receta+" Fab: "+fechaFab+" Cad : "+fechaCad+" --> "+pvp+"€";
     }
 }
