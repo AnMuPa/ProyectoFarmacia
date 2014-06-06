@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.io.Serializable;
 
 
+
 /**
  *
  * @author DAM1
@@ -15,6 +16,6 @@ import java.io.Serializable;
 public class Farmacia implements Serializable{
     
     ArrayList <Medicamento> listado=new ArrayList<>();
-    
-    
+
+     
 }

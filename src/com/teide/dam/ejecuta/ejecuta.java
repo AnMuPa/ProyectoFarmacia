@@ -57,10 +57,31 @@ public class ejecuta {
                 }
                 break;
                 case 2: {
+                    System.out.println("¿Vas a buscar el medicamento por su nombre o principio activo? \n 1. nombre \n 2.principio activo \n 3. Salir"  );
+                    String opcionbusqueda = s.nextLine();
+                    do {
+                        switch (opcionbusqueda) {
+                            case "1":
+                                System.out.println("¿Cual es el nombre del medicamento que buscas?");
+                                String nombreMed = s.nextLine();
+                                
+                                break;
+                            case "2":
+                                String nombrePrincip = s.nextLine();
+                                break;
+                            case "3":
+                                System.out.println("Hasta pronto.");
+                                break;
+                            default:
+                                System.out.println("Opcion no valida...");
+                                break;
+                        }
+                    } while (!opcionbusqueda.equals("1") || !opcionbusqueda.equals("2") || opcionbusqueda.equals("3") );
 
                 }
                 break;
                 case 3: {
+
 
                 }
                 break;
