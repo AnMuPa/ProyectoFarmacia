@@ -14,9 +14,13 @@ public class Medicamento {
     private String nombre,pinciActivo;
     private int receta, unidadesTotales;
     private double miligr,pvp;
-    private HashMap <String, Double>principios=new HashMap<>();
     ArrayList<Lotes>listaLotes=new ArrayList<>();
     ArrayList<String> encontradosPA;
+
+    public Medicamento(ArrayList<String> encontradosPA) {
+        this.encontradosPA = encontradosPA;
+    }
+    
     
     
     public Medicamento(String nombre,Double pvp,String princiActivo,int receta,double miligr){
@@ -25,6 +29,12 @@ public class Medicamento {
         this.pinciActivo=princiActivo;
         this.pvp=pvp;
         this.receta=receta;
+    }
+    
+    public Medicamento(String princiActivo){
+
+        this.pinciActivo=princiActivo;
+
     }
     public String getNombre() {
         return nombre;
@@ -69,20 +79,7 @@ public class Medicamento {
         return "lote"+extension;
     }
    
-    public boolean buscarPrincipioActivo(String PActivo) {
-        encontradosPA = new ArrayList<>();
-        int i = 0;
-        while (i<principios.size()) {
-            if (principios.containsKey(PActivo)) {
-                encontradosPA.add(PActivo);
-                return true;
-            }
-            i++;
-        }
-        return false;
 
-
-    }
     
     @Override
     public boolean equals(Object obj) {

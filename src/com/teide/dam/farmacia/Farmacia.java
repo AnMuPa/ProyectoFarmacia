@@ -15,10 +15,26 @@ import java.util.*;
 public class Farmacia implements Serializable {
 
     ArrayList<Medicamento> listado = new ArrayList<>();
+    private HashMap <String, Double>principios=new HashMap<>();
     ArrayList<String> encontradosN;
+    ArrayList<String> encontradosPA;
+    Medicamento m = new Medicamento(encontradosPA);
+    
     public void venta(int unidades) {
     }
 
+    public Farmacia(ArrayList<String> encontradosN, ArrayList<String> encontradosPA) {
+        this.encontradosN = encontradosN;
+        this.encontradosPA = encontradosPA;
+    }
+
+    
+    
+    public Farmacia() {
+    }
+
+    
+    
     public boolean caducados(Lotes l) {
         GregorianCalendar gc = new GregorianCalendar();
         String[] caduca = (l.getFechaCad()).split("/");
@@ -52,13 +68,38 @@ public class Farmacia implements Serializable {
 
     public boolean buscarMedicamento(String medicamento) {
         encontradosN = new ArrayList<>();
-        int i = 0;
+        int i = 0, cont =0;
         while (i<listado.size()) {
             if (listado.contains(medicamento)) {
                 encontradosN.add(medicamento);
+                cont++;
                 return true;
             }
             i++;
+            if (i == listado.size() && cont > 1) {
+            System.out.println("Se han encontrado "+cont+" medicamentos con ese principio activo :"+"  \n"+encontradosPA);
+            }
+            else System.out.println("No se han encontrado medicamentos con ese nombre");
+        }
+        return false;
+
+
+    }
+    
+        public boolean buscarPrincipioActivo(String PActivo) {
+        m.encontradosPA = new ArrayList<>();
+        int i = 0,cont = 0;
+        while (i<principios.size()) {
+            if (principios.containsKey(PActivo)) {
+                encontradosPA.add(PActivo);
+                cont++;
+                return true;
+            }
+            i++;
+            if (i == principios.size() && cont > 1) {
+            System.out.println("Se han encontrado "+cont+" medicamentos con ese principio activo :"+"  \n"+encontradosPA);
+            }
+            else System.out.println("No se han encontrado medicamentos con ese pricipio activo");
         }
         return false;
 
