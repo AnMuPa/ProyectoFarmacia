@@ -108,7 +108,7 @@ public class ejecuta {
 
         try {
             util.write(listado);
-        } catch (IOException ex) {
+        } catch (Exception ex) {
             System.out.println("Error de escritura");
         }
     }

@@ -69,7 +69,7 @@ public class Farmacia implements Serializable {
             }
             i++;
             if (i == listado.size() && cont > 1) {
-                System.out.println("Se han encontrado " + cont + " medicamentos con ese principio activo :" + "  \n" + encontradosPA);
+                System.out.println("Se han encontrado " + cont + " medicamentos con ese nombre :" + "  \n" + encontradosN);
             } else {
                 System.out.println("No se han encontrado medicamentos con ese nombre");
             }
