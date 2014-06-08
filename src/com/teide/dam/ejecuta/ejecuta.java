@@ -5,7 +5,6 @@
 package com.teide.dam.ejecuta;
 
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.Scanner;
 import com.teide.dam.aortiz.ioutil.OperationsIO;
 import com.teide.dam.farmacia.Lotes;
@@ -30,10 +29,7 @@ public class ejecuta {
         }
         int opcion = 0;
         
-        do {
-        String nombre, princiActivo, lote, fechaCad, fechaFab;
-        double pvp, miligramos;
-        int unidades, recetaInt;       
+        do {   
             System.out.println("Introduce opcion:");
             System.out.println("1.Dar de alta un medicamento");
             System.out.println("2.Buscar un medicamento");
@@ -41,30 +37,31 @@ public class ejecuta {
             System.out.println("4.Borrar un medicamento");
             System.out.println("5.SALIR");
             opcion = s.nextInt();
-            Farmacia f;
+            Farmacia f = new Farmacia();
             switch (opcion) {
                 case 1: {
                     System.out.println("Introduce el nombre del medicamento: ");
-                    nombre = s.nextLine();
+                    String nombre = s.nextLine();
                     System.out.println("Introduce fecha de fabricacion (dd/mm/yyyy)");
-                    fechaFab = s.nextLine();
+                    String fechaFab = s.nextLine();
                     System.out.println("Introduce fecha de caducidad (dd/mm/yyyy)");
-                    fechaCad = s.nextLine();
+                    String fechaCad = s.nextLine();
                     System.out.println("Introduce Precio Venta al Público");
-                    pvp = s.nextDouble();
+                    double pvp = s.nextDouble();
                     System.out.println("Introduce principio activo del medicamento");
-                    princiActivo = s.nextLine();
+                    String princiActivo = s.nextLine();
                     System.out.println("Introduce miligramos");
-                    miligramos = s.nextDouble();
+                    double miligramos = s.nextDouble();
                     System.out.println("¿Necesita receta?");
                     System.out.println("0=NO");
                     System.out.println("1=SI");
-                    recetaInt = s.nextInt();
+                    int recetaInt = s.nextInt();
                     System.out.println("¿Cuantas unidades?");
-                    unidades = s.nextInt();
-                    Medicamento m = new Medicamento(nombre, pvp, princiActivo, recetaInt, miligramos);
-                    lote=m.extension();
-                    Lotes l = new  Lotes(lote, fechaCad, fechaFab, unidades);
+                    int unidades = s.nextInt();
+                    Medicamento m =new Medicamento(nombre, pvp, princiActivo, recetaInt, miligramos);
+                    String lote=m.extension();
+                    Lotes l = new Lotes(lote, fechaCad, fechaFab, unidades);
+                    
                     
                 }
                 break;
@@ -74,13 +71,11 @@ public class ejecuta {
                     do {
                         switch (opcionbusqueda) {
                             case "1":
-                                f = new Farmacia();
                                 System.out.println("¿Cual es el nombre del medicamento que buscas?");
                                 String nombreMed = s.nextLine();
                                 f.buscarMedicamento(nombreMed);
                                 break;
                             case "2":
-                                f = new Farmacia();
                                 System.out.println("¿Cual es el principio activo del medicamento que buscas?");
                                 String nombrePrincip = s.nextLine();
                                 f.buscarPrincipioActivo(nombrePrincip);
@@ -97,8 +92,14 @@ public class ejecuta {
                 }
                 break;
                 case 3: {
-
-
+                    Medicamento m = new Medicamento();
+                    System.out.println("De que medicamento se va a realizar la venta?");
+                    String nombreV = s.nextLine();
+                    System.out.println("¿Cuantas unidades de "+nombreV+" ?");
+                    int unidadesV = s.nextInt();
+                    s.nextLine();
+                    m.ventaMedicamento(nombreV, unidadesV);
+                    
                 }
                 break;
 

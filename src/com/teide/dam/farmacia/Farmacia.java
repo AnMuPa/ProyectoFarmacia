@@ -18,10 +18,8 @@ public class Farmacia implements Serializable {
     private HashMap <String, Double>principios=new HashMap<>();
     ArrayList<String> encontradosN;
     ArrayList<String> encontradosPA;
-    Medicamento m = new Medicamento(encontradosPA);
     
-    public void venta(int unidades) {
-    }
+
 
     public Farmacia(ArrayList<String> encontradosN, ArrayList<String> encontradosPA) {
         this.encontradosN = encontradosN;
@@ -87,7 +85,7 @@ public class Farmacia implements Serializable {
     }
     
         public boolean buscarPrincipioActivo(String PActivo) {
-        m.encontradosPA = new ArrayList<>();
+        
         int i = 0,cont = 0;
         while (i<principios.size()) {
             if (principios.containsKey(PActivo)) {

@@ -4,6 +4,7 @@
  */
 package com.teide.dam.farmacia;
 
+
 import java.util.*;
 
 /**
@@ -14,13 +15,13 @@ public class Medicamento {
     private String nombre,pinciActivo;
     private int receta, unidadesTotales;
     private double miligr,pvp;
-    ArrayList<Lotes>listaLotes=new ArrayList<>();
-    ArrayList<String> encontradosPA;
-
-    public Medicamento(ArrayList<String> encontradosPA) {
-        this.encontradosPA = encontradosPA;
-    }
+    ArrayList<Lotes>listaLotes =new ArrayList<>();
+    ArrayList<Medicamento> listaMedicamentos =new ArrayList<>();
     
+
+  public Medicamento(){
+      
+  }
     
     
     public Medicamento(String nombre,Double pvp,String princiActivo,int receta,double miligr){
@@ -29,6 +30,7 @@ public class Medicamento {
         this.pinciActivo=princiActivo;
         this.pvp=pvp;
         this.receta=receta;
+        
     }
     
     public Medicamento(String princiActivo){
@@ -36,8 +38,14 @@ public class Medicamento {
         this.pinciActivo=princiActivo;
 
     }
+    
+    
     public String getNombre() {
         return nombre;
+    }
+
+    public void setUnidadesTotales(int unidadesTotales) {
+        this.unidadesTotales += unidadesTotales;
     }
 
     public String getPinciActivo() {
@@ -68,6 +76,38 @@ public class Medicamento {
   
     private boolean eliminarLote (Lotes l) {
         if( listaLotes.remove(l.getLote())) return true;
+        return false;
+    }
+    
+    public boolean ventaMedicamento (String Nmedicamento, int unidades){
+        Scanner s = new Scanner(System.in);
+        double precioTotal;
+        if (listaMedicamentos.contains(Nmedicamento)) {
+          if (unidadesTotales >= unidades) {
+          precioTotal = pvp * unidades;
+          System.out.println("El coste total es de: "+precioTotal+" \n ¿Esta conforme? \n 1.Si \n 2.No");
+          int opcion = s.nextInt();
+          s.nextLine();
+          do {
+          switch (opcion) {
+            case 1: {
+          System.out.println("Venta realizada con exito");
+          unidadesTotales =  unidadesTotales - unidades;
+          return true;
+            }
+            case 2: {
+                System.out.println("Operación cancelada");
+                return false;
+            }
+            default: System.out.println("Opcion incorrecta");
+                return false;
+                
+          }
+          } while (opcion != 1 || opcion != 2);
+          } 
+          else System.out.println("No disponemos de tal numero de unidades,  unicamente quedan "+unidadesTotales+" de "+Nmedicamento);
+          return false;
+        }
         return false;
     }
     
