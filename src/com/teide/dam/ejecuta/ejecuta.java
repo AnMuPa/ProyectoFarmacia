@@ -40,14 +40,16 @@ public class ejecuta {
             Farmacia f = new Farmacia();
             switch (opcion) {
                 case 1: {
+                    s.nextLine();
                     System.out.println("Introduce el nombre del medicamento: ");
                     String nombre = s.nextLine();
-                    System.out.println("Introduce fecha de fabricacion (dd/mm/yyyy)");
-                    String fechaFab = s.nextLine();
-                    System.out.println("Introduce fecha de caducidad (dd/mm/yyyy)");
-                    String fechaCad = s.nextLine();
+//                    System.out.println("Introduce fecha de fabricacion (dd/mm/yyyy)");
+//                    String fechaFab = s.nextLine();
+//                    System.out.println("Introduce fecha de caducidad (dd/mm/yyyy)");
+//                    String fechaCad = s.nextLine();
                     System.out.println("Introduce Precio Venta al Público");
                     double pvp = s.nextDouble();
+                    s.nextLine();
                     System.out.println("Introduce principio activo del medicamento");
                     String princiActivo = s.nextLine();
                     System.out.println("Introduce miligramos");
@@ -58,14 +60,16 @@ public class ejecuta {
                     int recetaInt = s.nextInt();
                     System.out.println("¿Cuantas unidades?");
                     int unidades = s.nextInt();
+                    s.nextLine();
                     Medicamento m =new Medicamento(nombre, pvp, princiActivo, recetaInt, miligramos);
                     String lote=m.extension();
-                    Lotes l = new Lotes(lote, fechaCad, fechaFab, unidades);
+                    Lotes l = new Lotes(lote, unidades);
                     
                     
                 }
                 break;
                 case 2: {
+                    s.nextLine();
                     System.out.println("¿Vas a buscar el medicamento por su nombre o principio activo? \n 1. nombre \n 2.principio activo \n 3. Salir"  );
                     String opcionbusqueda = s.nextLine();
                     do {
@@ -73,12 +77,20 @@ public class ejecuta {
                             case "1":
                                 System.out.println("¿Cual es el nombre del medicamento que buscas?");
                                 String nombreMed = s.nextLine();
-                                f.buscarMedicamento(nombreMed);
+                                if(f.buscarMedicamento(nombreMed)==true){
+                                    System.out.println("encontrado");
+                                }else{
+                                    System.out.println("no encontrado");
+                                }
                                 break;
                             case "2":
                                 System.out.println("¿Cual es el principio activo del medicamento que buscas?");
                                 String nombrePrincip = s.nextLine();
-                                f.buscarPrincipioActivo(nombrePrincip);
+                                if(f.buscarPrincipioActivo(nombrePrincip)==true){
+                                    System.out.println("encontrado");
+                                }else{
+                                    System.out.println("no encontrado");
+                                }
                                 break;
                             case "3":
                                 System.out.println("Hasta pronto.");
@@ -87,11 +99,14 @@ public class ejecuta {
                                 System.out.println("Opcion no valida...");
                                 break;
                         }
-                    } while (!opcionbusqueda.equals("1") || !opcionbusqueda.equals("2") || opcionbusqueda.equals("3") );
+                        System.out.println("¿Vas a buscar el medicamento por su nombre o principio activo? \n 1. nombre \n 2.principio activo \n 3. Salir"  );
+                        opcionbusqueda = s.nextLine();
+                    } while (!opcionbusqueda.equals("3") );
 
                 }
                 break;
                 case 3: {
+                    s.nextLine();
                     Medicamento m = new Medicamento();
                     System.out.println("De que medicamento se va a realizar la venta?");
                     String nombreV = s.nextLine();
@@ -108,7 +123,7 @@ public class ejecuta {
 
         try {
             util.write(listado);
-        } catch (Exception ex) {
+        } catch (IOException ex) {
             System.out.println("Error de escritura");
         }
     }

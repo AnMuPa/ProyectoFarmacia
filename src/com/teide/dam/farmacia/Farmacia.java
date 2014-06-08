@@ -68,12 +68,13 @@ public class Farmacia implements Serializable {
                 return true;
             }
             i++;
-            if (i == listado.size() && cont > 1) {
-                System.out.println("Se han encontrado " + cont + " medicamentos con ese nombre :" + "  \n" + encontradosN);
-            } else {
-                System.out.println("No se han encontrado medicamentos con ese nombre");
-            }
+//            if (i == listado.size() && cont > 1) {
+//                System.out.println("Se han encontrado " + cont + " medicamentos con ese nombre :" + "  \n" + encontradosN);
+//            } else {
+//                System.out.println("No se han encontrado medicamentos con ese nombre");
+//            }
         }
+        
         return false;
 
     }
