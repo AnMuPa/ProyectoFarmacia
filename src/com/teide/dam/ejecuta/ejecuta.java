@@ -64,7 +64,11 @@ public class ejecuta {
                     Medicamento m =new Medicamento(nombre, pvp, princiActivo, recetaInt, miligramos);
                     String lote=m.extension();
                     Lotes l = new Lotes(lote, unidades);
-                    
+                    if(m.altaLote(l)){
+                        System.out.println("añadido correctamentte");
+                    }else{
+                        System.out.println("error al añadir el medicamento");
+                    }
                     
                 }
                 break;
@@ -123,6 +127,7 @@ public class ejecuta {
                 break;
                 case 4: {
                     s.nextLine();
+                    Medicamento m = new Medicamento();
                     System.out.println("Introduce el nombre del medicamento a borrar: ");
                     String nombre=s.nextLine();
                     

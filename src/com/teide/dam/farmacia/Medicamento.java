@@ -75,7 +75,7 @@ public class Medicamento {
 
     }
 
-    private boolean eliminarLote(Lotes l) {
+    public boolean eliminarLote(Lotes l) {
         if (listaLotes.remove(new Lotes(l.getLote(), l.getUnidades()))) {
             return true;
         }
