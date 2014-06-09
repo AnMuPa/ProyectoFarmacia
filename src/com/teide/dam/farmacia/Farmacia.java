@@ -59,8 +59,20 @@ public class Farmacia implements Serializable {
     }
 
     public boolean buscarMedicamento(String medicamento) {
-        encontradosN = new ArrayList<>();
+        encontradosN = new ArrayList<>();//igual sobra
         int i = 0, cont = 0;
+        /*for (int j = 0; j < listado.size(); j++) {
+            Medicamento mEncontrado = listado.get(j);
+            if(mEncontrado.getNombre().toLowerCase().equals(medicamento.toLowerCase())) encontradosN.add(mEncontrado.getNombre());
+        }
+        if(encontradosN.size()>0 ){
+        System.out.println("Se han encontrado " + encontradosN.size() + " medicamentos con ese nombre : "+medicamento );
+        for (int j = 0; j < listado.size(); j++) {
+            System.out.println(encontradosN.get(j));
+        }
+        return true;
+        }
+        else return false;*/
         while (i < listado.size()) {
             if (listado.contains(medicamento)) {
                 encontradosN.add(medicamento);
@@ -68,13 +80,18 @@ public class Farmacia implements Serializable {
                 return true;
             }
             i++;
+            
 //            if (i == listado.size() && cont > 1) {
 //                System.out.println("Se han encontrado " + cont + " medicamentos con ese nombre :" + "  \n" + encontradosN);
 //            } else {
 //                System.out.println("No se han encontrado medicamentos con ese nombre");
 //            }
         }
-        
+        /*if (listado.contains(medicamento)) {
+                encontradosN.add(medicamento);
+                cont++;
+                return true;
+            }else return false;*/
         return false;
 
     }
@@ -82,6 +99,7 @@ public class Farmacia implements Serializable {
     public boolean buscarPrincipioActivo(String PActivo) {
 
         int i = 0, cont = 0;
+        //Medicamento pAEncontrado = listado.get(j);
         while (i < principios.size()) {
             if (principios.containsKey(PActivo)) {
                 encontradosPA.add(PActivo);
