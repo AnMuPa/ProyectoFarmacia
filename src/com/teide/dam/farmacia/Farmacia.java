@@ -74,7 +74,7 @@ public class Farmacia implements Serializable {
         }
         else return false;*/
         while (i < listado.size()) {
-            if (listado.contains(medicamento)) {
+            if (listado.contains(new Medicamento(medicamento))) {
                 encontradosN.add(medicamento);
                 cont++;
                 return true;

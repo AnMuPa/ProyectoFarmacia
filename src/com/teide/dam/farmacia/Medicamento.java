@@ -66,7 +66,7 @@ public class Medicamento {
     }
 
     public boolean altaLote(Lotes l) {
-        if (listaLotes.contains(l.getLote())) {
+        if (listaLotes.contains(new Lotes(l.getLote(),l.getUnidades()))) {
             return false;
         }
         listaLotes.add(l);
@@ -76,7 +76,7 @@ public class Medicamento {
     }
 
     private boolean eliminarLote(Lotes l) {
-        if (listaLotes.remove(l.getLote())) {
+        if (listaLotes.remove(new Lotes(l.getLote(), l.getUnidades()))) {
             return true;
         }
         return false;
@@ -85,7 +85,7 @@ public class Medicamento {
     public boolean ventaMedicamento(String Nmedicamento, int unidades) {
         Scanner s = new Scanner(System.in);
         double precioTotal;
-        if (listaMedicamentos.contains(Nmedicamento)) {
+        if (listaMedicamentos.contains(new Medicamento(Nmedicamento))) {
             if (unidadesTotales >= unidades) {
                 precioTotal = pvp * unidades;
                 System.out.println("El coste total es de: " + precioTotal + " \n ¿Esta conforme? \n 1.Si \n 2.No");

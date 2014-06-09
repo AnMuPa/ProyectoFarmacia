@@ -110,15 +110,25 @@ public class ejecuta {
                     Medicamento m = new Medicamento();
                     System.out.println("De que medicamento se va a realizar la venta?");
                     String nombreV = s.nextLine();
-                    System.out.println("¿Cuantas unidades de "+nombreV+" ?");
-                    int unidadesV = s.nextInt();
-                    s.nextLine();
-                    m.ventaMedicamento(nombreV, unidadesV);
+                    if(f.buscarMedicamento(nombreV) || f.buscarPrincipioActivo(nombreV)){
+                        System.out.println("¿Cuantas unidades de "+nombreV+" ?");
+                        int unidadesV = s.nextInt();
+                        s.nextLine();
+                        m.ventaMedicamento(nombreV, unidadesV);
+                    }else{
+                        System.out.println("medicamento no encontrado");
+                    }
                     
                 }
                 break;
-
+                case 4: {
+                    s.nextLine();
+                    System.out.println("Introduce el nombre del medicamento a borrar: ");
+                    String nombre=s.nextLine();
+                    
+                }
             }
+            
         } while (opcion != 5);
 
         try {
