@@ -15,7 +15,7 @@ import java.util.*;
 public class Farmacia implements Serializable {
 
     ArrayList<Medicamento> listado = new ArrayList<>();
-    private HashMap<String, Double> principios = new HashMap<>();
+    private HashMap<Medicamento, Double> principios = new HashMap<>();
     ArrayList<String> encontradosN;
     ArrayList<String> encontradosPA;
 
@@ -59,10 +59,9 @@ public class Farmacia implements Serializable {
     }
 
     public boolean buscarMedicamento(String medicamento) {
-        encontradosN = new ArrayList<>();//igual sobra
+        
         int i = 0, cont = 0;
-        /*for (int j = 0; j < listado.size(); j++) {
-            Medicamento mEncontrado = listado.get(j);
+        for (Medicamento mEncontrado : listado) {
             if(mEncontrado.getNombre().toLowerCase().equals(medicamento.toLowerCase())) encontradosN.add(mEncontrado.getNombre());
         }
         if(encontradosN.size()>0 ){
@@ -72,27 +71,27 @@ public class Farmacia implements Serializable {
         }
         return true;
         }
-        else return false;*/
-        while (i < listado.size()) {
+        else return false;
+        /*while (i < listado.size()) {
             if (listado.contains(new Medicamento(medicamento))) {
                 encontradosN.add(medicamento);
                 cont++;
                 return true;
             }
-            i++;
+            i++;*/
             
 //            if (i == listado.size() && cont > 1) {
 //                System.out.println("Se han encontrado " + cont + " medicamentos con ese nombre :" + "  \n" + encontradosN);
 //            } else {
 //                System.out.println("No se han encontrado medicamentos con ese nombre");
 //            }
-        }
+        
         /*if (listado.contains(medicamento)) {
                 encontradosN.add(medicamento);
                 cont++;
                 return true;
             }else return false;*/
-        return false;
+       // return false;
 
     }
 
@@ -100,20 +99,30 @@ public class Farmacia implements Serializable {
 
         int i = 0, cont = 0;
         //Medicamento pAEncontrado = listado.get(j);
-        while (i < principios.size()) {
+        Medicamento pAEncontrado;
+        pAEncontrado = principios.keySet().;
+        for (int j = 0; j < principios.size(); j++) {
+            if(pAEncontrado.getPinciActivo().toLowerCase().equals(PActivo.toLowerCase())) encontradosN.add(pAEncontrado.getPinciActivo());
+        }
+     return true;
+        }
+ 
+       /* while (i < principios.size()) {
             if (principios.containsKey(PActivo)) {
                 encontradosPA.add(PActivo);
                 cont++;
                 return true;
             }
-            i++;
+        }*/
+          /*  i++;
             if (i == principios.size() && cont > 1) {
                 System.out.println("Se han encontrado " + cont + " medicamentos con ese principio activo :" + "  \n" + encontradosPA);
             } else {
                 System.out.println("No se han encontrado medicamentos con ese pricipio activo");
             }
         }
-        return false;
+        return false;*/
 
-    }
-}
+        
+        }
+
