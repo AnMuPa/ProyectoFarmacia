@@ -24,7 +24,7 @@ public class ejecuta {
         ArrayList<Medicamento> listado;
         try {
             listado = (ArrayList<Medicamento>) util.read();
-        } catch (Exception e) {
+        } catch (IOException | ClassNotFoundException e) {
             listado = new ArrayList<>();
         }
         int opcion = 0;
