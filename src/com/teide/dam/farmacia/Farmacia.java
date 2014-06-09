@@ -15,7 +15,7 @@ import java.util.*;
 public class Farmacia implements Serializable {
 
     ArrayList<Medicamento> listado = new ArrayList<>();
-    private HashMap<Medicamento, Double> principios = new HashMap<>();
+    //private HashMap<String, Medicamento> principios = new HashMap<>();
     ArrayList<String> encontradosN;
     ArrayList<String> encontradosPA;
 
@@ -59,70 +59,74 @@ public class Farmacia implements Serializable {
     }
 
     public boolean buscarMedicamento(String medicamento) {
-        
+
         int i = 0, cont = 0;
         for (Medicamento mEncontrado : listado) {
-            if(mEncontrado.getNombre().toLowerCase().equals(medicamento.toLowerCase())) encontradosN.add(mEncontrado.getNombre());
-        }
-        if(encontradosN.size()>0 ){
-        System.out.println("Se han encontrado " + encontradosN.size() + " medicamentos con ese nombre : "+medicamento );
-        for (int j = 0; j < listado.size(); j++) {
-            System.out.println(encontradosN.get(j));
-        }
-        return true;
-        }
-        else return false;
-        /*while (i < listado.size()) {
-            if (listado.contains(new Medicamento(medicamento))) {
-                encontradosN.add(medicamento);
-                cont++;
-                return true;
+            if (mEncontrado.getNombre().toLowerCase().contains(medicamento.toLowerCase())) {
+                encontradosN.add(mEncontrado.getNombre());
             }
-            i++;*/
-            
+        }
+        if (encontradosN.size() > 0) {
+            System.out.println("Se han encontrado " + encontradosN.size() + " medicamentos con ese nombre : " + medicamento);
+            for (int j = 0; j < listado.size(); j++) {
+                System.out.println(encontradosN.get(j));
+            }
+            return true;
+        } else {
+            return false;
+        }
+        /*while (i < listado.size()) {
+         if (listado.contains(new Medicamento(medicamento))) {
+         encontradosN.add(medicamento);
+         cont++;
+         return true;
+         }
+         i++;*/
+
 //            if (i == listado.size() && cont > 1) {
 //                System.out.println("Se han encontrado " + cont + " medicamentos con ese nombre :" + "  \n" + encontradosN);
 //            } else {
 //                System.out.println("No se han encontrado medicamentos con ese nombre");
 //            }
-        
         /*if (listado.contains(medicamento)) {
-                encontradosN.add(medicamento);
-                cont++;
-                return true;
-            }else return false;*/
+         encontradosN.add(medicamento);
+         cont++;
+         return true;
+         }else return false;*/
        // return false;
-
     }
 
     public boolean buscarPrincipioActivo(String PActivo) {
 
-        int i = 0, cont = 0;
-        //Medicamento pAEncontrado = listado.get(j);
-        Medicamento pAEncontrado;
-        pAEncontrado = principios.keySet().;
-        for (int j = 0; j < principios.size(); j++) {
-            if(pAEncontrado.getPinciActivo().toLowerCase().equals(PActivo.toLowerCase())) encontradosN.add(pAEncontrado.getPinciActivo());
-        }
-     return true;
-        }
- 
-       /* while (i < principios.size()) {
-            if (principios.containsKey(PActivo)) {
-                encontradosPA.add(PActivo);
-                cont++;
-                return true;
-            }
-        }*/
-          /*  i++;
-            if (i == principios.size() && cont > 1) {
-                System.out.println("Se han encontrado " + cont + " medicamentos con ese principio activo :" + "  \n" + encontradosPA);
-            } else {
-                System.out.println("No se han encontrado medicamentos con ese pricipio activo");
+        for (Medicamento mEncontrado : listado) {
+            if (mEncontrado.getPinciActivo().toLowerCase().contains(PActivo.toLowerCase())) {
+                encontradosN.add(mEncontrado.getNombre());
             }
         }
-        return false;*/
-
-        
+        if (encontradosN.size() > 0) {
+            System.out.println("Se han encontrado " + encontradosN.size() + " medicamentos con ese nombre : " + PActivo);
+            for (int j = 0; j < listado.size(); j++) {
+                System.out.println(encontradosN.get(j));
+            }
+            return true;
+        } else {
+            return false;
         }
 
+        /* while (i < principios.size()) {
+         if (principios.containsKey(PActivo)) {
+         encontradosPA.add(PActivo);
+         cont++;
+         return true;
+         }
+         }*/
+        /*  i++;
+         if (i == principios.size() && cont > 1) {
+         System.out.println("Se han encontrado " + cont + " medicamentos con ese principio activo :" + "  \n" + encontradosPA);
+         } else {
+         System.out.println("No se han encontrado medicamentos con ese pricipio activo");
+         }
+         }
+         return false;*/
+    }
+}
