@@ -19,6 +19,7 @@ import java.util.ArrayList;
 public class ejecuta {
 
     public static void main(String[] args) {
+        int nMed = 0;
         Scanner s = new Scanner(System.in);
         OperationsIO util = new OperationsIO("datos");
         ArrayList<Medicamento> listado;
@@ -62,14 +63,13 @@ public class ejecuta {
                     int unidades = s.nextInt();
                     s.nextLine();
                     Medicamento m =new Medicamento(nombre, pvp, princiActivo, recetaInt, miligramos);
-                    String lote=m.extension();
+                    String lote = m.extension(nMed);
                     Lotes l = new Lotes(lote, unidades);
                     if(m.altaLote(l)){
-                        System.out.println("añadido correctamentte");
+                        System.out.println("añadido correctamente");
                     }else{
                         System.out.println("error al añadir el medicamento");
                     }
-                    
                 }
                 break;
                 case 2: {

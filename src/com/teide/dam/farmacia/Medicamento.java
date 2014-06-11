@@ -116,8 +116,8 @@ public class Medicamento {
         return false;
     }
 
-    public String extension() {
-        int i = 0;
+    public String extension(int nMed) {
+        int i = listaLotes.size();
         i++;
         String extension = "";
         extension = String.valueOf(i);
