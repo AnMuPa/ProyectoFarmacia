@@ -14,6 +14,7 @@ import java.util.*;
  */
 public class Farmacia implements Serializable {
 
+    
     ArrayList<Medicamento> listado = new ArrayList<>();
     //private HashMap<String, Medicamento> principios = new HashMap<>();
     ArrayList<String> encontradosN;
@@ -60,7 +61,7 @@ public class Farmacia implements Serializable {
 
     public boolean buscarMedicamento(String medicamento) {
 
-        int i = 0, cont = 0;
+        int i = 0;
         for (Medicamento mEncontrado : listado) {
             if (mEncontrado.getNombre().toLowerCase().contains(medicamento.toLowerCase())) {
                 encontradosN.add(mEncontrado.getNombre());

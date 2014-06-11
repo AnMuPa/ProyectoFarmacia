@@ -62,9 +62,10 @@ public class ejecuta {
                     int unidades = s.nextInt();
                     s.nextLine();
                     Medicamento m =new Medicamento(nombre, pvp, princiActivo, recetaInt, miligramos);
+                    m.altaMedicamento(m);
                     String lote = m.extension();
-                    Lotes l = new Lotes(lote, unidades);
-                    if(m.altaLote(l)){
+                    Lotes l = new Lotes(lote, unidades, m);
+                    if(m.altaLote(m)){
                         System.out.println("añadido correctamente");
                     }else{
                         System.out.println("error al añadir el medicamento");
@@ -80,7 +81,7 @@ public class ejecuta {
                             case "1":
                                 System.out.println("¿Cual es el nombre del medicamento que buscas?");
                                 String nombreMed = s.nextLine();
-                                if(f.buscarMedicamento(nombreMed)==true){
+                                if(f.buscarMedicamento(nombreMed)){
                                     System.out.println("encontrado");
                                 }else{
                                     System.out.println("no encontrado");
@@ -129,6 +130,7 @@ public class ejecuta {
                     Medicamento m = new Medicamento();
                     System.out.println("Introduce el nombre del medicamento a borrar: ");
                     String nombre=s.nextLine();
+                    m.eliminarLote(m);
                     
                 }
             }

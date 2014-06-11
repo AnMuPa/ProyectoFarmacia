@@ -21,6 +21,10 @@ public class Medicamento {
     public Medicamento() {
 
     }
+    
+     public Medicamento(String nombre){
+         this.nombre = nombre;
+     }
 
     public Medicamento(String nombre, Double pvp, String princiActivo, int receta, double miligr) {
         this.miligr = miligr;
@@ -28,12 +32,6 @@ public class Medicamento {
         this.pinciActivo = princiActivo;
         this.pvp = pvp;
         this.receta = receta;
-
-    }
-
-    public Medicamento(String princiActivo) {
-
-        this.pinciActivo = princiActivo;
 
     }
 
@@ -65,18 +63,35 @@ public class Medicamento {
         this.pvp = pvp;
     }
 
-    public boolean altaLote(Lotes l) {
-        if (listaLotes.contains(new Lotes(l.getLote(),l.getUnidades()))) {
+     public boolean altaMedicamento(Medicamento m) {
+        if (listaMedicamentos.contains(m)) {
             return false;
         }
-        listaLotes.add(l);
-        unidadesTotales += l.getUnidades();
+        listaMedicamentos.add(m);
         return true;
 
     }
+    
+    public boolean altaLote(Medicamento m) {
+        Lotes l = new Lotes(m);
+        if (listaMedicamentos.contains(l)) {
+            for (Medicamento mt : listaMedicamentos) {
+               if (!mt.equals(m)) listaMedicamentos.add(mt);
+            }
+            unidadesTotales += l.getUnidades();
+            return true;
+        }
+        return false;
 
-    public boolean eliminarLote(Lotes l) {
-        if (listaLotes.remove(new Lotes(l.getLote(), l.getUnidades()))) {
+    }
+
+    public boolean eliminarLote(Medicamento m) {
+        Lotes l = new Lotes(m);
+        if (listaLotes.contains(l)) {
+            for (Lotes lt : listaLotes) {
+               if (lt.equals(l)) listaLotes.remove(lt);
+            }
+            unidadesTotales -= l.getUnidades();
             return true;
         }
         return false;
