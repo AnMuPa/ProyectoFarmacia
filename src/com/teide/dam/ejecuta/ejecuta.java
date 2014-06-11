@@ -90,7 +90,7 @@ public class ejecuta {
                             case "2":
                                 System.out.println("¿Cual es el principio activo del medicamento que buscas?");
                                 String nombrePrincip = s.nextLine();
-                                if(f.buscarPrincipioActivo(nombrePrincip)==true){
+                                if(f.buscarPrincipioActivo(nombrePrincip)){
                                     System.out.println("encontrado");
                                 }else{
                                     System.out.println("no encontrado");
@@ -130,7 +130,12 @@ public class ejecuta {
                     Medicamento m = new Medicamento();
                     System.out.println("Introduce el nombre del medicamento a borrar: ");
                     String nombre=s.nextLine();
-                    m.eliminarLote(m);
+                    if (m.eliminarLote(nombre)) {
+                        System.out.println("Medicamento eliminado correctamente");
+                    }
+                    else {
+                        System.out.println("El medicamento no existia");
+                    }
                     
                 }
             }

@@ -61,21 +61,21 @@ public class Farmacia implements Serializable {
 
     public boolean buscarMedicamento(String medicamento) {
 
-        int i = 0;
         for (Medicamento mEncontrado : listado) {
             if (mEncontrado.getNombre().toLowerCase().contains(medicamento.toLowerCase())) {
                 encontradosN.add(mEncontrado.getNombre());
             }
         }
-        if (encontradosN.size() > 0) {
+        if (encontradosN.size()>0 ) {
             System.out.println("Se han encontrado " + encontradosN.size() + " medicamentos con ese nombre : " + medicamento);
-            for (int j = 0; j < listado.size(); j++) {
-                System.out.println(encontradosN.get(j));
+            for (Medicamento mEncontrado : listado) {
+                System.out.println(mEncontrado.getNombre());
             }
             return true;
         } else {
             return false;
         }
+        
         /*while (i < listado.size()) {
          if (listado.contains(new Medicamento(medicamento))) {
          encontradosN.add(medicamento);
@@ -101,18 +101,22 @@ public class Farmacia implements Serializable {
 
         for (Medicamento mEncontrado : listado) {
             if (mEncontrado.getPinciActivo().toLowerCase().contains(PActivo.toLowerCase())) {
-                encontradosN.add(mEncontrado.getNombre());
+                encontradosPA.add(mEncontrado.getNombre());
             }
         }
-        if (encontradosN.size() > 0) {
-            System.out.println("Se han encontrado " + encontradosN.size() + " medicamentos con ese nombre : " + PActivo);
-            for (int j = 0; j < listado.size(); j++) {
-                System.out.println(encontradosN.get(j));
+        if (encontradosPA.size() > 0) {
+            System.out.println("Se han encontrado" + encontradosPA.size() + " medicamentos con ese Principio activo : " + PActivo);
+            for (Medicamento mEncontrado : listado) { 
+                System.out.println(mEncontrado.getNombre());
             }
             return true;
+            
         } else {
             return false;
         }
+        
+    }
+   }
 
         /* while (i < principios.size()) {
          if (principios.containsKey(PActivo)) {
@@ -129,5 +133,5 @@ public class Farmacia implements Serializable {
          }
          }
          return false;*/
-    }
-}
+
+

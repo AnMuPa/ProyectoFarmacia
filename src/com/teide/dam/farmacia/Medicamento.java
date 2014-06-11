@@ -78,20 +78,19 @@ public class Medicamento {
             for (Medicamento mt : listaMedicamentos) {
                if (!mt.equals(m)) listaMedicamentos.add(mt);
             }
-            unidadesTotales += l.getUnidades();
             return true;
         }
         return false;
 
     }
 
-    public boolean eliminarLote(Medicamento m) {
+    public boolean eliminarLote(String nombre) {
+        Medicamento m = new Medicamento(nombre);
         Lotes l = new Lotes(m);
         if (listaLotes.contains(l)) {
             for (Lotes lt : listaLotes) {
                if (lt.equals(l)) listaLotes.remove(lt);
             }
-            unidadesTotales -= l.getUnidades();
             return true;
         }
         return false;
