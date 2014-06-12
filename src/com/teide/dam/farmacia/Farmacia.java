@@ -69,7 +69,7 @@ public class Farmacia implements Serializable {
         if (encontradosN.size()>0 ) {
             System.out.println("Se han encontrado " + encontradosN.size() + " medicamentos con ese nombre : " + medicamento);
             for (Medicamento mEncontrado : listado) {
-                System.out.println(mEncontrado.getNombre());
+                System.out.println(mEncontrado);
             }
             return true;
         } else {
@@ -107,7 +107,7 @@ public class Farmacia implements Serializable {
         if (encontradosPA.size() > 0) {
             System.out.println("Se han encontrado" + encontradosPA.size() + " medicamentos con ese Principio activo : " + PActivo);
             for (Medicamento mEncontrado : listado) { 
-                System.out.println(mEncontrado.getNombre());
+                System.out.println(mEncontrado);
             }
             return true;
             
